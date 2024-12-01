@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+// Displays individual items with Add button
 import Header from "../components/common/Header"; // Header component
 import TakePicture from "../components/TakePicture";
 import SearchBar from "../components/SearchBar";
 import ItemList from "../components/ItemList";
-import CartList from "../components/CartList";
 
-const ScanItemPage = () => {
+
+const ScanItem = () => {
   const [cart, setCart] = useState([]); // Stores items in the cart
   const [searchQuery, setSearchQuery] = useState(""); // For filtering items
 
@@ -67,33 +68,32 @@ const ScanItemPage = () => {
 
   return (
     <div>
-      <div className="flex-1 overflow-auto relative z-10">
-        <Header title="Quick Scan" />
-      </div>
-      <div className="min-h-screen flex bg-gray-100">
-        {/* Left Section: TakePicture */}
-        <div className="w-1/2 bg-white p-4 overflow-auto relative z-10">
-          <TakePicture />
-        </div>
+      {/* left section*/}
+      <div className="flex-[2]">
+       
 
-        {/* Right Section: Header, SearchBar, ItemList, and CartList */}
-        <div className="w-1/2 bg-gray-50 p-4 overflow-auto relative z-10">
+          <div className=" overflow-auto relative z-10">
+            <TakePicture />
+          </div>
+
           {/* Search Bar */}
-          <div className="py-4">
+          <div className="overflow-auto relative z-10 py-4 px-4 sm:px-6 lg:px-8">
             <SearchBar
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
             />
           </div>
-
-          {/* Item List */}
-          <div className="py-4">
+          <div className=" overflow-auto relative z-10">
+            {/* Item List */}
             <ItemList items={filteredItems} addItemToCart={addItemToCart} />
           </div>
         </div>
       </div>
-    </div>
+
+     
+    
+  
   );
 };
 
-export default ScanItemPage;
+export default ScanItem;

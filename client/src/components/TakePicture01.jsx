@@ -1,11 +1,11 @@
-import React, { useState, useRef, useCallback } from "react";
+import  { useState, useRef, useCallback } from "react";
 import Webcam from "react-webcam";
 
 const TakePicture = () => {
   const webcamRef = useRef(null); // Webcam reference
   const [imgSrc, setImgSrc] = useState(null); // Captured image
   const [isUploading, setIsUploading] = useState(false); // Simulated uploading state
-  const [isMirrored, setIsMirrored] = useState(false); // Mirror toggle
+  const [isMirrored, setIsMirrored] = useState(true); // Mirror toggle
 
   // Capture picture from webcam
   const capture = useCallback(() => {
